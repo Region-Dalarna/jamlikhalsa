@@ -1,0 +1,49 @@
+source('global.R')
+
+# APP_BESKRIVNING <- 'En mening om vad appen visar (visas på landningssidan).'
+
+APP_TITEL <- 'jamlikhalsa'
+
+shinyUI(
+  fluidPage(
+    title = APP_TITEL,  # webbläsarflikens rubrik
+    tags$head(
+      tags$link(rel = 'icon', type = 'image/x-icon', href = 'favicon.ico'),
+      tags$link(rel = 'stylesheet', type = 'text/css', href = 'regiondalarna_ruf.css'),
+      tags$link(rel = 'stylesheet', type = 'text/css', href = 'app.css'),
+      rdshinyappar::telemetri_ui(telemetry)
+    ),
+
+    # ---- Header (matchar .rd-header i regiondalarna_ruf.css) --------------
+    tags$div(
+      class = 'rd-header',
+      tags$div(class = 'rd-header__title', APP_TITEL),
+      tags$a(
+        class  = 'rd-header__right',
+        href   = 'https://www.regiondalarna.se',
+        target = '_blank',
+        tags$img(src = 'logo_liggande_fri_vit.png', alt = 'Region Dalarna')
+      )
+    ),
+
+    # ---- Innehåll ---------------------------------------------------------
+    tabsetPanel(
+      id = 'flikval',
+      tabPanel('Tab 1',
+        h3('Hej från jamlikhalsa'),
+        verbatimTextOutput('example_text')
+      ),
+      tabPanel('Om', p('Beskriv applikationen här.'))
+    ),
+
+    # ---- Footer (matchar .rd-footer i regiondalarna_ruf.css) --------------
+    tags$div(
+      class = 'rd-footer',
+      'Samhällsanalys, Region Dalarna · ',
+      tags$a(
+        href = 'mailto:samhallsanalys@regiondalarna.se',
+        'samhallsanalys@regiondalarna.se'
+      )
+    )
+  )
+)
