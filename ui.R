@@ -2,7 +2,7 @@ source('global.R')
 
 # APP_BESKRIVNING <- 'En mening om vad appen visar (visas på landningssidan).'
 
-APP_TITEL <- 'jamlikhalsa'
+APP_TITEL <- 'Jämlik hälsa'
 
 shinyUI(
   fluidPage(
