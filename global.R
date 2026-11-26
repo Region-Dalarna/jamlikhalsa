@@ -16,4 +16,4 @@ telemetry <- skapa_telemetry("jamlikhalsa")
 
 # Allmänna options - TRUE = visa inte R-felmeddelanden i appen,
 # FALSE = visa felmeddelanden från R på webben
-options(shiny.sanitize.errors = FALSE)
+options(shiny.sanitize.errors = TRUE)
